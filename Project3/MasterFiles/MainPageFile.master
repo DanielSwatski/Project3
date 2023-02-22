@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterFiles/HeaderNFooter.Master" AutoEventWireup="true" CodeBehind="MainPageFile.master.cs" Inherits="Project3.MasterFiles.NestedMasterPage1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    <asp:Label ID="lblUser" runat="server" style="z-index: 1; left: 408px; top: 111px; position: absolute; right: 412px" Text="Hello USERNAMEHER. We hope you find love today!"></asp:Label>
+    <div _designerregion="0" style="height: 576px">
+        <asp:Image ID="imgUserProfilePice" runat="server" Height="336px" Width="255px" />
+        <asp:ListBox ID="lstBoxUserInfo" runat="server" style="z-index: 1; left: 8px; top: 367px; position: absolute; width: 250px">
+            <asp:ListItem>Put info in here</asp:ListItem>
+        </asp:ListBox>
+        <asp:Button ID="btn1" runat="server" style="z-index: 1; left: 597px; top: 236px; position: absolute" Text="Button" />
+    </div>
+</asp:Content>
+
