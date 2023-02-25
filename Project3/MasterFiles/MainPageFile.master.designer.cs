@@ -15,6 +15,15 @@ namespace Project3.MasterFiles
     {
 
         /// <summary>
+        /// imgProfilePhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgProfilePhoto;
+
+        /// <summary>
         /// lblUser control.
         /// </summary>
         /// <remarks>
@@ -24,15 +33,6 @@ namespace Project3.MasterFiles
         protected global::System.Web.UI.WebControls.Label lblUser;
 
         /// <summary>
-        /// imgUserProfilePice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgUserProfilePice;
-
-        /// <summary>
         /// lstBoxUserInfo control.
         /// </summary>
         /// <remarks>
@@ -40,14 +40,5 @@ namespace Project3.MasterFiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstBoxUserInfo;
-
-        /// <summary>
-        /// btn1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn1;
     }
 }

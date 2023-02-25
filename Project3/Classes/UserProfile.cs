@@ -1,9 +1,12 @@
 ﻿using Microsoft.Graph;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
+
+// only using this in the main section so it can be easier to control
 namespace Project3.Classes
 {
     public enum Gender
@@ -39,7 +42,7 @@ namespace Project3.Classes
         private int age;
         private string profileUrl;
         private string goals;
-        private string descritpion;
+        private string desciption;
         private double height;
         private double weight;
         private String telephone;
@@ -51,17 +54,61 @@ namespace Project3.Classes
         private Gender gender;
         private Commitment commitment;
 
-        public UserProfile(string username, string occupation, int age, string profileUrl, string description, double height, double weight, String telephone, string city, List<string> genres, List<string> food, List<string>vacation, Pet pet, Gender gender, Commitment commitment)
+        public UserProfile(string username, string occupation, int age, string city, double height, double weight, string profileUrl, Pet pet, List<string> vacation, List<string> genres, List<string> food, Gender gender, Commitment commitment, string description, String telephone)
         {
-            // get this shit done later
+            this.username = username;
+            this.occupation = occupation;
+            this.age = age;
+            this.city = city;
+            this.height = height;
+            this.weight = weight;
+            this.profileUrl = profileUrl;
+            this.pet = pet;
+            this.vacation = vacation;
+            this.genres = genres;
+            this.food = food;
+            this.gender = gender;
+            this.commitment = commitment;
+            this.Descritpion = desciption;
+            this.telephone = telephone;
         }
+
+        
+        public UserProfile(DataRow row)
+        {
+            String holder; // used for converting objects to strings to arrays to list of strings
+            this.username = (string)row.ItemArray[0];
+            this.occupation = (string)row.ItemArray[1];
+            this.age = (int)row.ItemArray[2];
+            this.city = (string)row.ItemArray[3];
+            this.height = (double)row.ItemArray[4];
+            this.weight = (double)row.ItemArray[5];
+            this.profileUrl = (string)row.ItemArray[6];
+            Enum.Parse(typeof(Pet), (string)row.ItemArray[7]);
+
+            holder = (string)row.ItemArray[8];
+            this.vacation = new List<String>(holder.Split(';'));
+            
+            holder = (string)row.ItemArray[9];
+            this.genres = new List<String>(holder.Split(';'));
+
+            holder = (string)row.ItemArray[10];
+            this.food = new List<String>(holder.Split(';'));
+
+            Enum.Parse(typeof(Gender), (string)row.ItemArray[11]);
+            Enum.Parse(typeof(Commitment), (string)row.ItemArray[12]);
+            this.Descritpion = (string)row.ItemArray[13];
+            this.telephone = (string)row.ItemArray[14];
+        }
+
+
 
         public string Username { get => username; set => username = value; }
         public string Occupation { get => occupation; set => occupation = value; }
         public int Age { get => age; set => age = value; }
         public string ProfileUrl { get => profileUrl; set => profileUrl = value; }
         public string Goals { get => goals; set => goals = value; }
-        public string Descritpion { get => descritpion; set => descritpion = value; }
+        public string Descritpion { get => desciption; set => desciption = value; }
         public double Height { get => height; set => height = value; }
         public double Weight { get => weight; set => weight = value; }
         public String Telephone { get => telephone; set => telephone = value; }

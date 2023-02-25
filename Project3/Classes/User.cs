@@ -5,6 +5,8 @@ using System.Web;
 
 namespace Project3.Classes
 {
+
+    // only using these clases in the main profile section
     public class User
     {
         private string username;

@@ -2,10 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:TextBox ID="txtBoxEmail" runat="server" style="z-index: 1; left: 560px; top: 331px; position: absolute">Email</asp:TextBox>
+    <asp:TextBox ID="txtBoxEmail" runat="server" style="z-index: 1; left: 560px; top: 331px; position: absolute">Email INSERTION NOT ORKING YET</asp:TextBox>
 <asp:Button ID="btnSubmitInfo" runat="server" style="z-index: 1; left: 559px; top: 379px; position: absolute" Text="Submit Info" OnClick="btnSubmitInfo_Click" />
-    <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 824px; top: 190px; position: absolute; height: 152px; width: 232px">
-    </asp:GridView>
 <asp:TextBox ID="txtBoxFullName" runat="server" style="z-index: 1; left: 560px; top: 285px; position: absolute; height: 20px">Full Name</asp:TextBox>
 <asp:TextBox ID="txtBosUserName" runat="server" style="z-index: 1; left: 562px; top: 185px; position: absolute">UserName</asp:TextBox>
 <asp:TextBox ID="txtBoxPassword" runat="server" style="z-index: 1; left: 560px; top: 236px; position: absolute">Password</asp:TextBox>

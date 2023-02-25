@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project3.Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -25,8 +26,6 @@ namespace Project3
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            
-            
 
             // need to figure out the button clicks to get it to work properly
 
@@ -62,6 +61,20 @@ namespace Project3
             if (contin)
             {
                 // check to see if a username is currently in the table
+
+                if (TableChecker.UserInUser(txtBosUserName.Text)) {
+                    MessageBox.Show("USER IS ALREADY IN THE TABLE");
+                }
+                else
+                {
+                    MessageBox.Show(" INSERT USER INTO DATABASE");
+                    TableChecker.insertIntoUsers(txtBosUserName.Text, txtBoxPassword.Text, txtBoxFullName.Text, txtBoxEmail.Text);
+
+
+                }
+
+                    
+                
             }
 
            

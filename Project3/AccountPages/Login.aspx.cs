@@ -45,7 +45,7 @@ namespace Project3
                 {
                     MessageBox.Show("User is in the profile systme");
                     // need to do the cookie stuff here
-                    Response.Redirect("MainPages/HomePage.aspx");
+                    Response.Redirect("../MainPages/HomePage.aspx");
                 }
                 else
                 {

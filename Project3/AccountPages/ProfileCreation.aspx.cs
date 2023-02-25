@@ -1,4 +1,5 @@
 ﻿using Microsoft.Graph;
+using Project3.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace Project3
                 txtBoxUsername.Text = Request.Cookies["UserInfo"].Values["Username"];
                 txtBoxUsername.ReadOnly = true;
             }
-            catch(Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Cookie is not there");
             }
@@ -51,34 +52,63 @@ namespace Project3
             // either replace current or finish
 
             // check to see if everything is filled in properly
-            int age;
-            double weight;
-            double height;
+            // double check the below if statement to be 100 percent sure
 
-            
+
 
             // checks to see if any issue is present with the numbers or empty or anything imaginable that might be needed to control for errors
+            // need umerical checking later
             if (String.IsNullOrEmpty(txtBoxOccupation.Text) ||
                 String.IsNullOrEmpty(txtBoxProfileURL.Text) ||
                 String.IsNullOrEmpty(txtBoxProfileURL.Text) ||
-                String.IsNullOrEmpty(txtBoxAge.Text) || int.TryParse(txtBoxAge.Text, out age) ||
+                String.IsNullOrEmpty(txtBoxAge.Text) || // int.TryParse(txtBoxAge.Text, out age) ||
                 String.IsNullOrEmpty(txtBoxCity.Text) ||
                 String.IsNullOrEmpty(txtBoxDescripiton.Text) ||
-                String.IsNullOrEmpty(txtBoxPhone.Text) || Regex.IsMatch(txtBoxPhone.Text, @"/d{3}-/d{3}-/d{4}") ||
-                String.IsNullOrEmpty(txtBoxWeight.Text) || double.TryParse(txtBoxWeight.Text, out weight) ||
-                String.IsNullOrEmpty(txtBoxHeight.Text) || double.TryParse(txtBoxHeight.Text, out height) 
-                // need to check the ddls and lists and other stuff 
+                //String.IsNullOrEmpty(txtBoxPhone.Text) || Regex.IsMatch(txtBoxPhone.Text, @"/d{3}-/d{3}-/d{4}") ||
+                String.IsNullOrEmpty(txtBoxWeight.Text) || //int.TryParse(txtBoxWeight.Text, out weight) ||
+                String.IsNullOrEmpty(txtBoxHeight.Text) || //int.TryParse(txtBoxHeight.Text, out height) ||
+                chkBoxFoods.SelectedIndex == -1 ||
+                chkBoxMusic.SelectedIndex == -1 ||
+                chkBoxVacation.SelectedIndex == -1
                 
                 )
             {
-                MessageBox.Show("ALL INFO IS CORRECT");
+                MessageBox.Show("SOMETHING WENT WRONG. MAKE SURE EVERYTHING IS ENTERED IN PROPERLY. YOU MAY NEED TO MAKE SURE ALL THE DATA IS PROPERLY ENTERED AS NUMBER OR STRINGS AND IS NOT EMPTY");
             }
             else
             {
-                MessageBox.Show("SOMETHING WENT WRONG. MAKE SURE EVERYTHING IS ENTERED IN PROPERLY. YOU MAY NEED TO MAKE SURE ALL THE DATA IS PROPERLY ENTERED AS NUMBER OR STRINGS AND IS NOT EMPTY");
+                MessageBox.Show("ALL INFO IS CORRECT");
+                // need to check to either update the records or make news ones in it
+
+                if (TableChecker.profileExists(txtBoxUsername.Text))
+                {
+                    // means that there is a profile so it updates
+                    MessageBox.Show("USER IN PROFILE and will update AND NOT WORKING YET");
+                    
+
+                }
+                else
+                {
+                    // means that there isnt a profile so it inserts into db
+                    MessageBox.Show("USER NOT IN PROFILE and will insert but not working at the moment");
+                    int i = TableChecker.insertUserProfiles(txtBoxUsername.Text, txtBoxOccupation.Text, int.Parse(txtBoxAge.Text), txtBoxCity.Text, float.Parse(txtBoxHeight.Text), float.Parse(txtBoxWeight.Text), txtBoxProfileURL.Text, ddlFavoritePet.SelectedValue.ToString(), chkBoxVacation.SelectedValue.ToString(), chkBoxMusic.SelectedValue.ToString(), chkBoxFoods.SelectedValue.ToString(), ddlGender.SelectedValue.ToString(), ddlCommintmentType.SelectedValue.ToString(), txtBoxDescripiton.Text, txtBoxPhone.Text);
+
+                    if (i != -1)
+                    {
+                        MessageBox.Show("INSERTED");
+                    }
+                    else
+                    {
+                        MessageBox.Show("NOT INSERTED AND NOT WORKING YET");
+                    }
+                }
+
+
+
             }
 
 
         }
+
     }
 }
