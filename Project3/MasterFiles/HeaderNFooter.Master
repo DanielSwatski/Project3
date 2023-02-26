@@ -23,29 +23,34 @@
         }
 
         .jumbotron {
-            background: rgba(204, 204, 204, 0.5);
+            background-color: transparent;
+            height: 840px;
         }
 
-        .
+        
     </style>
 
     
     
-<body style="height: 564px">
+<body style="height: 865px">
     
     <form id="form1" runat="server">
-        <div class="jumbotron text-center">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-            <asp:Label ID="lblHeader" runat="server" Font-Size="30pt" style="z-index: 1; left: 491px; top: 24px; position: absolute; width: 412px" Text="Charactr Findr"></asp:Label>
-
-            <asp:Label ID="lblFooter" runat="server" Font-Size="30pt" style="z-index: 1; left: 376px; top: 669px; position: absolute; width: 510px" Text="Made by Daniel"></asp:Label>
-        </div>
 
             
 
         <asp:Label ID="lblPageTitle" runat="server" style="z-index: 1; left: 596px; top: 120px; position: absolute" Text="CHANGE LABEL" Font-Size="Medium"></asp:Label>
         <asp:Button ID="btnSwitcher" class="btn btn-primary" runat="server" style="z-index: 1; left: 1099px; top: 39px; position: absolute" Text="Button" />
+        <div class="jumbotron text-center">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:Label ID="lblHeader" runat="server" Font-Size="30pt" style="z-index: 1; left: 491px; top: 24px; position: absolute; width: 412px" Text="Charactr Findr"></asp:Label>
+
+            <asp:Label ID="lblFooter" runat="server" Font-Size="30pt" style="z-index: 1; left: 376px; top: 669px; position: absolute; width: 510px" Text="Made by Daniel"></asp:Label>
+            
+            </asp:ContentPlaceHolder>
+        </div>
+
+            
+
     </form>
 </body>
 </html>

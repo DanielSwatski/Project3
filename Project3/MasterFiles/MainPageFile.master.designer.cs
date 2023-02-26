@@ -15,6 +15,15 @@ namespace Project3.MasterFiles
     {
 
         /// <summary>
+        /// imgProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgProfile;
+
+        /// <summary>
         /// imgProfilePhoto control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Project3.MasterFiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgProfilePhoto;
+
+        /// <summary>
+        /// ddlThingsToDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlThingsToDo;
 
         /// <summary>
         /// lblUser control.
