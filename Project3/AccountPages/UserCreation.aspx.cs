@@ -70,6 +70,14 @@ namespace Project3
                     MessageBox.Show(" INSERT USER INTO DATABASE");
                     TableChecker.insertIntoUsers(txtBosUserName.Text, txtBoxPassword.Text, txtBoxFullName.Text, txtBoxEmail.Text);
 
+                    MessageBox.Show("LOGGED IN");
+                    HttpCookie myCookie = new HttpCookie("UserInfo");
+                    myCookie.Values["Username"] = txtBosUserName.Text;
+                    Response.Cookies.Add(myCookie);
+
+
+                    Response.Redirect("ProfileCreation.aspx");
+
 
                 }
 

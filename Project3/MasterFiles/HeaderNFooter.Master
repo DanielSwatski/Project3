@@ -23,10 +23,11 @@
         }
 
         .jumbotron {
-            background: rgba(204, 204, 204, 0.5);
+            background-color: transparent;
+            height: 722px;
         }
 
-        .
+        
     </style>
 
     
@@ -34,6 +35,11 @@
 <body style="height: 564px">
     
     <form id="form1" runat="server">
+
+            
+
+        <asp:Label ID="lblPageTitle" runat="server" style="z-index: 1; left: 596px; top: 120px; position: absolute" Text="CHANGE LABEL" Font-Size="Medium"></asp:Label>
+        <asp:Button ID="btnSwitcher" class="btn btn-primary" runat="server" style="z-index: 1; left: 1099px; top: 39px; position: absolute" Text="Button" />
         <div class="jumbotron text-center">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -44,8 +50,6 @@
 
             
 
-        <asp:Label ID="lblPageTitle" runat="server" style="z-index: 1; left: 596px; top: 120px; position: absolute" Text="CHANGE LABEL" Font-Size="Medium"></asp:Label>
-        <asp:Button ID="btnSwitcher" class="btn btn-primary" runat="server" style="z-index: 1; left: 1099px; top: 39px; position: absolute" Text="Button" />
     </form>
 </body>
 </html>

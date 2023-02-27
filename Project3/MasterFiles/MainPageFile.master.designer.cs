@@ -24,6 +24,15 @@ namespace Project3.MasterFiles
         protected global::System.Web.UI.WebControls.Image imgProfilePhoto;
 
         /// <summary>
+        /// ddlThingsToDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlThingsToDo;
+
+        /// <summary>
         /// lblUser control.
         /// </summary>
         /// <remarks>

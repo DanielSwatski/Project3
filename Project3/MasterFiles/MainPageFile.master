@@ -6,10 +6,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    <asp:Image ID="imgProfilePhoto" runat="server" ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/288px-Question_Mark.svg.png?20101016063526" />
-    <asp:Label ID="lblUser" runat="server" style="z-index: 1; left: 30px; top: 95px; position: absolute; right: 1127px" Text="Hello USERNAMEHER. We hope you find love today!" Font-Size="Large"></asp:Label>
-        <asp:ListBox ID="lstBoxUserInfo" runat="server" style="z-index: 1; left: 51px; top: 443px; position: absolute; width: 250px">
-            <asp:ListItem>Put info in here</asp:ListItem>
+
+
+    <asp:Image ID="imgProfilePhoto" runat="server"  />
+    <asp:DropDownList ID="ddlThingsToDo" runat="server">
+        <asp:ListItem>HomePage</asp:ListItem>
+        <asp:ListItem>Search</asp:ListItem>
+        <asp:ListItem>Likes</asp:ListItem>
+        <asp:ListItem>Matches</asp:ListItem>
+        <asp:ListItem>Dates</asp:ListItem>
+</asp:DropDownList>
+    <asp:Label ID="lblUser" runat="server" style="z-index: 1; left: 36px; top: 119px; position: absolute; right: 1121px" Text="Hello USERNAMEHER. We hope you find love today!" Font-Size="Large"></asp:Label>
+        <asp:ListBox ID="lstBoxUserInfo" runat="server" style="z-index: 1; left: 22px; top: 483px; position: absolute; width: 250px">
         </asp:ListBox>
-        </asp:Content>
+
+
+</asp:Content>
 

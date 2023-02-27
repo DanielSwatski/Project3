@@ -16,34 +16,66 @@ namespace Project3.MasterFiles
         UserProfile loggedInUser;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblUser.Text = Request.Cookies["UserInfo"].Values["Username"] + ", we hope you find love, a friend, or marriage. Just dont be a weirdo!!!";
+            btnSwticher = (Button)Master.FindControl("btnSwitcher");
+            btnSwticher.Text = "GO!";
+            btnSwticher.Click += new EventHandler(this.btnSwitcher_Click);
 
-
-            try
+            if (!IsPostBack)
             {
-                lblUser.Text = Request.Cookies["UserInfo"].Values["Username"] + ", we hope you find love, a friend, or marriage. Just dont be a weirdo!!!";
-                btnSwticher = (Button)Master.FindControl("btnSwitcher");
-                btnSwticher.Text = "GO!";
 
-                // pulls the currently logged in user and sets all the lists and profile photos for them
-                DataSet ds = TableChecker.pullUserProfile(Request.Cookies["UserInfo"].Values["Username"]);
+                // maybe put this just inside the homepage
+                try
+                { 
 
-                MessageBox.Show("PULLED USER and creating object file." );
-                // ds.Tables[0].Rows[0].ItemArray this is good
-                loggedInUser = new UserProfile(ds.Tables[0].Rows[0]);
+                    // pulls the currently logged in user and sets all the lists and profile photos for them
+                    DataSet ds = TableChecker.pullUserProfile(Request.Cookies["UserInfo"].Values["Username"]);
 
-                imgProfilePhoto.ImageUrl = loggedInUser.ProfileUrl;
+                    MessageBox.Show("PULLED USER and creating object file.");
+                    // ds.Tables[0].Rows[0].ItemArray this is good
+                    loggedInUser = new UserProfile(ds.Tables[0].Rows[0]);
+
+                    imgProfilePhoto.ImageUrl = loggedInUser.ProfileUrl;
+                    // image1.Attributes.Add("width", "800")
+                    imgProfilePhoto.Attributes.Add("width", "100");
+                    imgProfilePhoto.Attributes.Add("height", "100");
+                    // need to locate the photo better on the page
+
+
+                    lstBoxUserInfo.Items.Add(loggedInUser.Occupation);
+                    lstBoxUserInfo.Items.Add(loggedInUser.Age.ToString());
+                    lstBoxUserInfo.Items.Add(loggedInUser.Gender.ToString());
+                    lstBoxUserInfo.Items.Add(loggedInUser.City);
+                    lstBoxUserInfo.Items.Add(loggedInUser.Telephone);
 
 
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something is wrong with the read in from the databases: " + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Something is wrong with the read in from the databases: " + ex.Message);
+                MessageBox.Show("Not Postback");
             }
-
 
         }
 
-        
+        protected void btnSwitcher_Click(object sender, EventArgs e)
+        {
+            String selected =  ddlThingsToDo.SelectedValue.ToString();
+
+            // double check to make sure the cookie gets passed properly
+            Response.Redirect(selected + ".aspx");
+
+
+
+            
+        }
+
+
+
     }
 }

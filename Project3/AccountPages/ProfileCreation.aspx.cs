@@ -96,10 +96,11 @@ namespace Project3
                     if (i != -1)
                     {
                         MessageBox.Show("INSERTED");
+                        Response.Redirect("../MainPages/HomePage.aspx");
                     }
                     else
                     {
-                        MessageBox.Show("NOT INSERTED AND NOT WORKING YET");
+                        MessageBox.Show("NOT INSERTED FOR SOME REASONT");
                     }
                 }
 

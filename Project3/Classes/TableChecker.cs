@@ -144,16 +144,13 @@ namespace Project3.Classes
         {
             objCommand = new SqlCommand();
             objDB = new DBConnect();
+            objCommand.Parameters.Clear();
+
 
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "INSERTINTOPROFILE";
+            objCommand.CommandText = "INSERINTOPROFILE";
 
             SqlParameter input = new SqlParameter("@USERNAME", username);
-            input.Direction = ParameterDirection.Input;
-            input.SqlDbType = SqlDbType.VarChar;
-            objCommand.Parameters.Add(input);
-
-            input = new SqlParameter("@USERNAME", occupation);
             input.Direction = ParameterDirection.Input;
             input.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(input);
@@ -213,7 +210,7 @@ namespace Project3.Classes
             input.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(input);
 
-            input = new SqlParameter("@COMMITMENTTYPES", commitment);
+            input = new SqlParameter("@COMMITMENTTPYES", commitment);
             input.Direction = ParameterDirection.Input;
             input.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(input);
@@ -228,7 +225,6 @@ namespace Project3.Classes
             input.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(input);
 
-            ds = null;
             int i = objDB.DoUpdate(objCommand);
 
             return i;
@@ -237,6 +233,36 @@ namespace Project3.Classes
         public static void insertIntoUsers(String username, String password, String Fullname, String Email)
         {
             // write this later
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+            objCommand.Parameters.Clear();
+
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "INSERTINTOUSER";
+
+            SqlParameter input = new SqlParameter("@USERNAME", username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@PASSWORD", password);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@FULLNAME", Fullname);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@EMAIL", Email);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            int i = objDB.DoUpdate(objCommand);
+
         }
 
 
