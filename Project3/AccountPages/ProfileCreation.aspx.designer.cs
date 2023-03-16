@@ -7,30 +7,75 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project3
+namespace Project3.AccountPages
 {
 
 
-    public partial class WebForm3
+    public partial class ProfileCreation
     {
 
         /// <summary>
-        /// btnSubmit control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtBoxDescripiton control.
+        /// lblHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxDescripiton;
+        protected global::System.Web.UI.WebControls.Label lblHeader;
+
+        /// <summary>
+        /// txtBoxUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxUsername;
+
+        /// <summary>
+        /// txtBoxOccupation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxOccupation;
+
+        /// <summary>
+        /// txtBoxAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxAge;
+
+        /// <summary>
+        /// txtBoxProfileURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxProfileURL;
+
+        /// <summary>
+        /// ddlGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlGender;
 
         /// <summary>
         /// txtBoxHeight control.
@@ -51,6 +96,15 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtBoxWeight;
 
         /// <summary>
+        /// txtBoxPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxPhone;
+
+        /// <summary>
         /// txtBoxCity control.
         /// </summary>
         /// <remarks>
@@ -58,6 +112,15 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBoxCity;
+
+        /// <summary>
+        /// txtBoxDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxDescription;
 
         /// <summary>
         /// ddlFavoritePet control.
@@ -69,22 +132,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.DropDownList ddlFavoritePet;
 
         /// <summary>
-        /// ddlCommintmentType control.
+        /// chkBoxMusic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCommintmentType;
-
-        /// <summary>
-        /// ddlGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGender;
+        protected global::System.Web.UI.WebControls.DropDownList chkBoxMusic;
 
         /// <summary>
         /// chkBoxFoods control.
@@ -93,16 +147,7 @@ namespace Project3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkBoxFoods;
-
-        /// <summary>
-        /// chkBoxMusic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkBoxMusic;
+        protected global::System.Web.UI.WebControls.DropDownList chkBoxFoods;
 
         /// <summary>
         /// chkBoxVacation control.
@@ -111,51 +156,42 @@ namespace Project3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkBoxVacation;
+        protected global::System.Web.UI.WebControls.DropDownList chkBoxVacation;
 
         /// <summary>
-        /// txtBoxPhone control.
+        /// ddlCommitmentTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxPhone;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCommitmentTypes;
 
         /// <summary>
-        /// txtBoxOccupation control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxOccupation;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// txtBoxUsername control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxUsername;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// txtBoxAge control.
+        /// lblFooter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxAge;
-
-        /// <summary>
-        /// txtBoxProfileURL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxProfileURL;
+        protected global::System.Web.UI.WebControls.Label lblFooter;
     }
 }

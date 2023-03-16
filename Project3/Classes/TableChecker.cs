@@ -287,21 +287,385 @@ namespace Project3.Classes
 
         }
 
+        public static DataSet searchUserProfiles(String category, String arg)
+        {
+            ds = new DataSet();
 
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            if (category.Equals("City"))
+            {
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "SEARCHUSERPORFILESCITY";
+
+                SqlParameter input = new SqlParameter("@ARGS", arg);
+                input.Direction = ParameterDirection.Input;
+                input.SqlDbType = SqlDbType.VarChar;
+                objCommand.Parameters.Add(input);
+
+            }
+
+            else if (category.Equals("Gender"))
+            {
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "SEARCHUSERPORFILESGENDER";
+
+                SqlParameter input = new SqlParameter("@ARGS", arg);
+                input.Direction = ParameterDirection.Input;
+                input.SqlDbType = SqlDbType.VarChar;
+                objCommand.Parameters.Add(input);
+
+            }
+
+            else if (category.Equals("Age"))
+            {
+                // age needs to split the string
+                int age1 = int.Parse(arg.Split(' ')[0]);
+                int age2 = int.Parse(arg.Split(' ')[1]);
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "SEARCHUSERPORFILESAGE";
+
+                SqlParameter input = new SqlParameter("@AGE1", age1);
+                input.Direction = ParameterDirection.Input;
+                input.SqlDbType = SqlDbType.Int;
+                objCommand.Parameters.Add(input);
+
+                input = new SqlParameter("@AGE2", age2);
+                input.Direction = ParameterDirection.Input;
+                input.SqlDbType = SqlDbType.Int;
+                objCommand.Parameters.Add(input);
+
+                ds = objDB.GetDataSet(objCommand);
+                return ds;
+            }
+
+            else
+            {
+                // commitmenttypes
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "SEARCHUSERPORFILESCOMMITMENT";
+
+                SqlParameter input = new SqlParameter("@ARGS", arg);
+                input.Direction = ParameterDirection.Input;
+                input.SqlDbType = SqlDbType.VarChar;
+                objCommand.Parameters.Add(input);
+            }
+
+            ds = objDB.GetDataSet(objCommand);
+            return ds;
+        }
         
+
+        public static void ToggleProfile(string username)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TOGGLEPROFILE";
+
+            objCommand.Parameters.Clear();
+            SqlParameter input = new SqlParameter("@USERNAME", username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            int i = objDB.DoUpdate(objCommand);
+
+        }
+
+
+
 
         // do it based upon string usernames for these as well
-        public static Boolean likeExists()
+        // these are actually well written procedures
+        public static void like(String User1, String User2)
         {
-            return false;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "LIKEUSER";
+
+            objCommand.Parameters.Clear();
+            SqlParameter input = new SqlParameter("@USERNAME1", User1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USERNAME2", User2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            int i = objDB.DoUpdate(objCommand);
         }
 
-        public static Boolean matchExists()
+        public static void unlike(String User1, String User2)
         {
-            return false;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UNLIKEUSER";
+
+            objCommand.Parameters.Clear();
+            SqlParameter input = new SqlParameter("@USERNAME1", User1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USERNAME2", User2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            int i = objDB.DoUpdate(objCommand);
         }
 
+
+
+        // these two usernames work in tandom
+        public static DataSet userData(String Username)
+        {
+            ds = new DataSet();
+
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "USERMATCHES";
+
+            SqlParameter input = new SqlParameter("@USER", Username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+
+            ds = objDB.GetDataSet(objCommand);
+
+            return ds;
+        }
+
+        public static DataSet matchData(String Username) {
+            ds = new DataSet();
+
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "PULLMATCHUSERPROFILE";
+
+            SqlParameter input = new SqlParameter("@USER", Username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+
+            ds = objDB.GetDataSet(objCommand);
+
+            return ds;
+        }
+
+
+        public static void MakeMatch(String username1, String username2)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "ACCEPTMATCH";
+
+            SqlParameter input = new SqlParameter("@USERNAME1", username1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USERNAME2", username2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+
+        }
+
+
+
+
+        public static DataSet DateData(String username)
+        {
+            ds = new DataSet();
+
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "PULLDATEDATA";
+
+            SqlParameter input = new SqlParameter("@USERNAME", username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            ds = objDB.GetDataSet(objCommand);
+
+            return ds;
+
+        }
+
+
+        public static void UpdateDate(String username1, String username2, String Locat, String Time, String Descript)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UPDATEDATE";
+
+            SqlParameter input = new SqlParameter("@USER1", username1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USER2", username2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@LOCAT", Locat);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@Time", Time);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@DESCRIPT", Descript);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+
+
+        }
         
+        public static void removeDate(String user1, String user2)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "REMOVEDATE";
+
+            SqlParameter input = new SqlParameter("@USER1", user1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USER2", user2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+
+
+        }
+
+        public static void MakeUnMatch(String user1, String user2)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "REMOVEMATCH";
+
+            SqlParameter input = new SqlParameter("@USER1", user1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USER2", user2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+        }
+
+
+        public static DataSet UserData(String username)
+        {
+            ds = new DataSet();
+
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "PULLALLUSERPROFILE";
+
+            SqlParameter input = new SqlParameter("@USERNAME", username);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            ds = objDB.GetDataSet(objCommand);
+
+            return ds;
+
+        }
+
+
+        public static void SeenMatch(String user1, String user2)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "SEENMATCH";
+
+            SqlParameter input = new SqlParameter("@USER1", user1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USER2", user2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+
+        }
+
+        public static void SeenDate(String user1, String user2)
+        {
+            objCommand = new SqlCommand();
+            objDB = new DBConnect();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "SEENDATE";
+
+            SqlParameter input = new SqlParameter("@USER1", user1);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+            input = new SqlParameter("@USER2", user2);
+            input.Direction = ParameterDirection.Input;
+            input.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(input);
+
+
+            int i = objDB.DoUpdate(objCommand);
+        }
 
     }
 }

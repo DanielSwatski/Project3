@@ -122,7 +122,8 @@ namespace Project3.Classes
 
         public String ToString()
         {
-            return "To string in userprofile";
+            return "Username: " + this.username + "\nOccupation: " + this.occupation + "\nAge: " + this.age.ToString() +
+                "\nDescription: " + this.desciption + "\nHeight: " + this.height.ToString() + "\nWeight: " + this.weight.ToString() + "\nTelephone: " + this.telephone + "\nCity: " + this.city;
         }
 
     }

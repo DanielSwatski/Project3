@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project3.AccountPages
+namespace Project3.MainPages
 {
 
 
-    public partial class UserCreationCur
+    public partial class DateCreator
     {
 
         /// <summary>
@@ -33,66 +33,57 @@ namespace Project3.AccountPages
         protected global::System.Web.UI.WebControls.Label lblHeader;
 
         /// <summary>
-        /// btnSwitcher control.
+        /// txtBoxUser1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSwitcher;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxUser1;
 
         /// <summary>
-        /// txtBosUserName control.
+        /// txtBoxUser2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBosUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxUser2;
 
         /// <summary>
-        /// txtBoxPassword control.
+        /// txtBoxDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxDate;
 
         /// <summary>
-        /// txtBoxEmail control.
+        /// txtBoxTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxTime;
 
         /// <summary>
-        /// txtBoxFullName control.
+        /// txtBoxDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxFullName;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxDescription;
 
         /// <summary>
-        /// btnSubmitInfo control.
+        /// btnAccept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitInfo;
-
-        /// <summary>
-        /// lblFooter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFooter;
+        protected global::System.Web.UI.WebControls.Button btnAccept;
     }
 }
